@@ -1,0 +1,28 @@
+Nume: Irimia Ana Mirela
+Grupa: 333CC
+
+	Pentru inceput am citit din fiserul de intrare f_in, tipul reprezentarii,
+dimensiunile matricei si ale hartii simulate. Am citit matricea din fisier in
+variabila harta_in. Daca dimensiunile hartii sunt mai mici atunci voi decupa
+pornind de la coltul din stanga sus o matrice de dimensiuni HxW ce va fi harta
+simulata. Daca dimensiunile hartii simulate sunt mai mari atunci voi copia 
+primele H_HARTA x W_HARTA elemente si apoi completez cu 0 pana la dimensiunile
+H+2 x W+2.
+	Am ales dimensiunile hartii simulate H+2 x W+2 deoarece, voi borda matricea
+cu zero-uri daca tipul reprezentarii este plan, respectiv cu prima/ultima linie si 
+coloana daca tipul reprezentarii este toroid.
+	Cu un for voi simula num_steps pasi. La fiecare pas voi calcula pentru fiecare
+element al hartii numarul de vecini, urmand ca in functie de acest numar sa 
+actualizez valoarea de pe pozitia respectiva. Actualizarile le voi face intr-o
+variabila auxiliara, respectiv harta_aux; inainte de a trece la urmatorul pas
+voi face update la matricea initiala. Daca tipul reprezentarii este toroid voi
+reface matricea actualizand valorile de pe margini. Pentru a paraleliza aceasta 
+secventa de cod am folosit directiva #pragma parallel for collapse pentru a
+executa in paralel numararea vecinilor si actualizarile din matrice pentru fiecare
+element. 
+	Urmeaza decuparea matricii obtinand un format ca cel de la intrare: dreptunghiul
+ce contine cel mai departat element nenul fata de primul element din matricea 
+simulata. 
+	In final voi scrie in fisier tipul reprezentarii, dimensiunile matricii, 
+dimensiunile matricii simulate si matricea finala.
+
